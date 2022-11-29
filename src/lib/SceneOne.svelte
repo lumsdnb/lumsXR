@@ -1,4 +1,5 @@
 <script>
+  export let camX=0, camY=0
   import {
     PerspectiveCamera,
     DirectionalLight,
