@@ -11,7 +11,7 @@
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<p>prototype for 3d version of <a href="https://lums.io">lums.io</a></p>
 	</footer>
 </div>
 
