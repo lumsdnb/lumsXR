@@ -5,7 +5,7 @@
   import SceneBoat from "$lib/SceneBoat.svelte";
   import { Canvas } from "@threlte/core";
 
-
+  export let data;
 </script>
 
 <section>
@@ -13,13 +13,13 @@
 
   <div class="canvas-wrapper">
     <Canvas>
-      <SceneFP/>
+      <SceneFP data={data}/>
     </Canvas>
   </div>
 </section>
 
 <section>
-  <h2>Scene 1</h2>
+  <h2>Scene 1 - interactable object</h2>
 
   <div class="canvas-wrapper">
     <Canvas>
@@ -27,7 +27,7 @@
     </Canvas>
   </div>
 </section>
-
+<!-- 
 <section>
   <h2>Scene 2</h2>
   <div class="canvas-wrapper">
@@ -44,7 +44,7 @@
       <SceneBoat />
     </Canvas>
   </div>
-</section>
+</section> -->
 
 <style>
   .canvas-wrapper {
