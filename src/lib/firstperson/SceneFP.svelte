@@ -1,20 +1,13 @@
 <script>
     import { World } from '@threlte/rapier';
-
-    import { AmbientLight, DirectionalLight, Mesh, useFrame, Object3DInstance, } from '@threlte/core'
+    import { T,AmbientLight, DirectionalLight, Mesh, useFrame, Object3DInstance, } from '@threlte/core'
 	import { AutoColliders, CollisionGroups } from '@threlte/rapier'
 	import { BoxGeometry, MeshStandardMaterial } from 'three'
-    	import Door from '$lib/firstperson/Door.svelte'
-    	import Player from '$lib/firstperson/Character.svelte'
-		
-		import { tweened } from "svelte/motion";
-		
-		
-		
-
-		
+	import Door from '$lib/firstperson/Door.svelte'
+	import Player from '$lib/firstperson/Character.svelte'
   import ClickableCube from '../ClickableCube.svelte';
-
+  export let data;
+  console.log(data.images[0])
 </script>
 
 
@@ -73,7 +66,6 @@
 			})}
 		
 	/>
-
 	<Mesh
 		receiveShadow
 		castShadow
@@ -103,6 +95,6 @@
 
 
 
-<ClickableCube/>
+<ClickableCube imgURL={data.images[0].id} posZ=4/>
 
 </World>

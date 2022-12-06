@@ -16,6 +16,7 @@
   } from "three";
   import { tweened } from "svelte/motion";
   import { Text } from "@threlte/extras";
+  import ClickableCube from "./ClickableCube.svelte";
   let textLabel = "uwu";
 
   const t = tweened(3, { duration: 1000 });
@@ -32,19 +33,14 @@
 <DirectionalLight />
 <AmbientLight />
 
-<Mesh
-  geometry={new IcosahedronGeometry()}
-  material={new MeshStandardMaterial({ color: "seagreen" })}
-  rotation={{ y: r }}
-  position={{ x: $t }}
-  interactive
-  on:click={() => ($t = $t > 0 ? -3 : 3)}
->
+<ClickableCube>
+
   <Object3DInstance object={new AxesHelper(5)} />
   <Text
-    text={r.toPrecision(2)}
-    fontSize={0.5}
-    position={{ x: 1 }}
-    color={"black"}
+  text={r.toPrecision(2)}
+  fontSize={0.5}
+  position={{ x: 1 }}
+  color={"black"}
   />
-</Mesh>
+  
+</ClickableCube>
