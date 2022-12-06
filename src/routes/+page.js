@@ -1,3 +1,11 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-export const prerender = true;
+export const load = ({ fetch }) => {
+  const fetchImages = async () => {
+    const res = await fetch("/api/images");
+    const data = await res.json();
+    return data;
+  };
+
+  return {
+    images: fetchImages(),
+  };
+};
