@@ -8,6 +8,12 @@
   import ClickableCube from '../ClickableCube.svelte';
   export let data;
   console.log(data.images[0])
+  let spawnPoints = [[3,-4],[-1,-1],[2,3],[0,4]]
+  let randomSpawn = spawnPoints[Math.floor(Math.random() * spawnPoints.length)];
+  console.log(randomSpawn);
+  console.log(randomSpawn)
+  console.log(randomSpawn)
+
 </script>
 
 
@@ -27,7 +33,7 @@
 </CollisionGroups>
 
 <CollisionGroups groups={[0]}>
-	<Player position={{ z: 2 }} />
+	<Player position={{x:randomSpawn[0], z:randomSpawn[1], y: 2 }} />
 	<Door />
 
 	<!-- WALLS -->
