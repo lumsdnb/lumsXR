@@ -5,9 +5,10 @@
 </script>
 
 <header>
+
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+		<a href="https://lums.io">
+			<img src="https://lums.io/images/ghostboi.png" alt="ghost">
 		</a>
 	</div>
 
@@ -23,16 +24,8 @@
 				<a href="/about">About</a>
 			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
 
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
 </header>
 
 <style>
@@ -63,7 +56,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		--background: rgba(37, 37, 37, 0.7);
 	}
 
 	svg {
