@@ -1,4 +1,6 @@
 <script>
+
+	import {player} from '$lib/playerStore.js'
     import { Vector3 } from 'three'
     	import { useFrame, useThrelte, PerspectiveCamera } from '@threlte/core'
     	import { RigidBody, CollisionGroups, Collider } from '@threlte/rapier'
@@ -6,7 +8,8 @@
     	import PointerLockControls from './PointerLockControls.svelte'
     
     	export let position = undefined
-    	export let playerCollisionGroups = [0]
+		export let initialRotation = [0, 0, 0]
+		export let playerCollisionGroups = [0]
     	export let groundCollisionGroups = [15]
     	export let radius = 0.3
     	export let height = 1.7
@@ -55,7 +58,9 @@
     		// when body position changes update position prop for camera
     		const pos = rigidBody.translation()
     		position = { x: pos.x, y: pos.y, z: pos.z }
-    	})
+			$player.position = [Math.round(position.x*100)/100 , Math.round(position.y*100)/100, Math.round(position.z*100)/100]
+			$player.rotation = cam.rotation.x
+		})
     
     	/** @param {KeyboardEvent} e */
     	function onKeyDown(e) {
@@ -128,11 +133,11 @@
 
 <svelte:window on:keydown|preventDefault={onKeyDown} on:keyup={onKeyUp} />
 
-<PerspectiveCamera bind:camera={cam} bind:position fov={90}>
+<PerspectiveCamera bind:camera={cam} bind:position fov={50}>
 	<PointerLockControls bind:lock />
 </PerspectiveCamera>
 
-<RigidBody bind:rigidBody {position} enabledRotations={[false, false, false]}>
+<RigidBody bind:rigidBody {position} rotation={initialRotation}  enabledRotations={[false, false, false]}>
 	<CollisionGroups groups={playerCollisionGroups}>
 		<Collider shape={'capsule'} args={[height / 2 - radius, radius]} />
 	</CollisionGroups>

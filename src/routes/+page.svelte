@@ -3,13 +3,15 @@
   import SceneOne from "$lib/SceneOne.svelte";
   import SceneTwo from "$lib/SceneTwo.svelte";
   import SceneBoat from "$lib/SceneBoat.svelte";
-  import { Canvas } from "@threlte/core";
+  import { T, Canvas } from "@threlte/core";
 
   export let data;
+
+  import {player} from '$lib/playerStore.js'
 </script>
 
 <section>
-  <h2>first person</h2>
+  <h2>player position: {$player.position} rotation: {$player.rotation}</h2>
 
   <div class="canvas-wrapper">
     <Canvas>
@@ -18,7 +20,7 @@
   </div>
 </section>
 
-<section>
+<!-- <section>
   <h2>Scene 1 - interactable object</h2>
 
   <div class="canvas-wrapper">
@@ -27,7 +29,7 @@
     </Canvas>
   </div>
 </section>
-<!-- 
+
 <section>
   <h2>Scene 2</h2>
   <div class="canvas-wrapper">
@@ -48,8 +50,9 @@
 
 <style>
   .canvas-wrapper {
-    position: relative;
-    border: 1px solid black;
+    position: absolute;
+    width: 100%;
+    /* border: 1px solid black; */
     height: 500px;
   }
 </style>
